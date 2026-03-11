@@ -29,3 +29,7 @@ costo_total = precio * cantidad
 
 # Mostrar la información del producto y el costo total formateado
 print(f"Producto: {Nombre} | precio: {precio:.3f} $| cantidad: {cantidad} | costo total: {costo_total:.3f} $")
+
+# El programa solicita el Nombre, el precio y la cantidad del o los productos
+# Luego multiplica la cantidad de producto(s) por el valor unitario
+# Para finalmente imprimir el nombre, el precio unitario, la cantidad y el costo total del inventario
