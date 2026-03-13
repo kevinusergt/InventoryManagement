@@ -1,41 +1,50 @@
+
+import time
 def menu():
    
  print("||Menu Inventario|| \n")
  print("1. Registrar productos")
  print("2. Mostar inventario")
  print("3. Calcular estadisticas")
- print("4. salir")
+ print("4. salir \n")
 
-opcion = 0
 
-while opcion < 4:
+option = 0
+inventario = []
+
+
+while option != 4:
  menu()
  try:
-    opcion = int(input("Eliga una opcion: "))
-    break
+  option = int(input("Choose a opcion: \n"))
 
  except ValueError:
-    print("Ingresa una opcion valida")
+  print("Enter a valid opcion!")
 
-while opcion > 4:
-  print("Ingresa una opcion del menu")
-  menu()
-  try:
-    opcion = int(input("Eliga una opcion: "))
-    break
-  except ValueError:
-     print("Ingresa una opcion valida")
-   
 
-   
+ if option == 1:
+  nombre = input("Introduce el nombre del producto: ")
+  precio = float(input("Ingrese el precio: "))
+  cantidad = int(input("Ingrese la cantidad: "))
+  print("Producto Agregado \n")
+  time.sleep(1)
 
-if opcion == 1:
-        
-    nombre = input("Ingrese el nombre del producto: \n")
-    precio = float(input("Ingrese el precio: \n"))
-    cantidad = int(input("Ingrese la cantidad: \n"))
+  producto = {
+   'Nombre': nombre,
+   'Precio': precio,
+   'Cantidad': cantidad
+  }
+  inventario.append(producto)
 
-elif opcion== 2:
+ elif option == 2:
+  print(f"inventario: {inventario} \n")
+  time.sleep(1)
 
-    print("Coming soon")    
 
+ elif option == 4:
+  print("SEE YOU!")
+  break   
+ 
+ elif option > 4:
+  print("Introduzca una opcion del menu \n")
+  time.sleep(1)
