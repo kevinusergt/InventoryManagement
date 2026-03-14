@@ -1,5 +1,9 @@
 
 import time
+
+
+inventario = []
+
 def menu():
    
  print("||Menu Inventario|| \n")
@@ -9,25 +13,37 @@ def menu():
  print("4. salir \n")
 
 
-option = 0
-inventario = []
 
 
-while option != 4:
+
+while True:
  menu()
  try:
-  option = int(input("Choose a opcion: \n"))
+  option = int(input("Choose an opcion: \n"))
 
  except ValueError:
   print("Enter a valid opcion!")
-
+  time.sleep(1)
+  continue
+ 
 
  if option == 1:
   nombre = input("Introduce el nombre del producto: ")
-  precio = float(input("Ingrese el precio: "))
-  cantidad = int(input("Ingrese la cantidad: "))
-  print("Producto Agregado \n")
-  time.sleep(1)
+  while True:
+    try:
+      precio = float(input("Ingrese el precio: "))
+      break
+    except ValueError:
+      print('Por favor ingresa un precio con decimales!')
+
+  while True:  
+    try:
+      cantidad = int(input("Ingrese la cantidad: "))
+      break  
+    except ValueError:
+     print('Ingresa un numero entero!')  
+      
+  
 
   producto = {
    'Nombre': nombre,
@@ -35,16 +51,24 @@ while option != 4:
    'Cantidad': cantidad
   }
   inventario.append(producto)
+  print("Producto Agregado \n")
+  time.sleep(1)
 
  elif option == 2:
-  print(f"inventario: {inventario} \n")
-  time.sleep(1)
+  if len(inventario) == 0:
+   print('El inventario está vacío!')
+   time.sleep(0.5)
+  else:
+    for i in inventario: 
+      print(f"Nombre: {i['Nombre']} | Precio: {i['Precio']} $ | Cantidad: {i['Cantidad']} \n")
+    time.sleep(1)
 
 
+ elif option == 3:
+  print("Despues")
+     
  elif option == 4:
-  print("SEE YOU!")
-  break   
+  print("Chao")
+  time.sleep(1) 
+  break
  
- elif option > 4:
-  print("Introduzca una opcion del menu \n")
-  time.sleep(1)
