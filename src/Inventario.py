@@ -1,34 +1,83 @@
-# Solicitar el nombre del producto al usuario
-Nombre = input("Enter the name: ")
+import time
 
-# Inicializar la variable precio
-precio = 0.0
 
-# Bucle para solicitar el precio hasta que el usuario ingrese un número válido
+inventario = []
+
+def registrar_productos(Nombre, Precio, Cantidad):
+  
+  producto = {
+   'Nombre': nombre,
+   'Precio': precio,
+   'Cantidad': cantidad
+  }
+  inventario.append(producto)
+  print("Producto Agregado! \n")
+  time.sleep(1)
+
+def mostrar_inventario():
+  
+  if len(inventario) == 0:
+   print('El inventario está vacío!\n')
+   time.sleep(0.5)
+  else:
+    for i in inventario: 
+      print(f"Producto: {i['Nombre']} | Precio: {i['Precio']} $ | Cantidad: {i['Cantidad']} unidades \n")
+    time.sleep(1)
+
+def actualizar_inventrio():
+  if len (inventario) == 0:
+    print('El inventario está vacio!')        
+
+def menu():
+   
+ print("||Menu Inventario|| \n")
+ print("1. Registrar productos")
+ print("2. Mostar inventario")
+ print("3. Actualizar inventario")
+ print("4. Eliminar producto")
+ print("5. salir \n")
+
+
+
+
+
 while True:
+ menu()
+ try:
+  option = int(input("Choose an opcion: \n"))
+
+ except ValueError:
+  print("Enter a valid opcion!")
+  time.sleep(1)
+ 
+
+ if option == 1:
+  nombre = input("Introduce el nombre del producto:\n ")
+  while True:
     try:
-        precio = float(input("Enter the price: "))
-        break
+      precio = float(input("Ingrese el precio: \n "))
+      break
     except ValueError:
-        print("Enter a correct value: ")
+      print('Por favor ingresa un precio con decimales!')
 
-# Inicializar la variable cantidad
-cantidad = 0
-
-# Bucle para solicitar la cantidad hasta que el usuario ingrese un número entero válido
-while True:
+  while True:  
     try:
-        cantidad = int(input("Enter a quantity: "))
-        break
+      cantidad = int(input("Ingrese la cantidad: \n"))
+      break  
     except ValueError:
-        print("Error, Enter a correct value: ")
+     print('Ingresa un numero entero!')  
+  registrar_productos(nombre,precio,cantidad)     
+  
+ elif option == 2:
+   mostrar_inventario()
 
-# Calcular el costo total multiplicando el precio por la cantidad
-costo_total = precio * cantidad
+ elif option == 3:
+   print('Aun en proceso')
 
-# Mostrar la información del producto y el costo total formateado
-print(f"Producto: {Nombre} | precio: {precio:.3f} $| cantidad: {cantidad} | costo total: {costo_total:.3f} $")
+ elif option == 4:
+   print('Aun en proceso') 
 
-# El programa solicita el Nombre, el precio y la cantidad del o los productos
-# Luego multiplica la cantidad de producto(s) por el valor unitario
-# Para finalmente imprimir el nombre, el precio unitario, la cantidad y el costo total del inventario
+ elif option == 5:
+   time.sleep(1)
+   break
+       
