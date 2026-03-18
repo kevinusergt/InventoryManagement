@@ -39,9 +39,8 @@ def calcular_inventario():
       
     
 
-def actualizar_inventrio():
-  if len (inventario) == 0:
-    print('El inventario está vacio!')        
+
+    
 
 def menu():
    
