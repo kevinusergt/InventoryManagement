@@ -15,16 +15,19 @@ def registrar_productos(nombre, precio, cantidad):
   time.sleep(1)
 
 def mostrar_inventario():
-  
-  if len(inventario) == 0:
-   print('El inventario está vacío!\n')
-   time.sleep(0.5)
-  else:
     for i in inventario: 
       print(f"Producto: {i['Nombre']} | Precio: {i['Precio']} $ | Cantidad: {i['Cantidad']} unidades \n")
     time.sleep(1)
+ 
+def actualizar_producto(nombre, nuevo_nombre, nuevo_precio, nueva_cantidad):
     
+    nombre['Nombre'] = nuevo_nombre
+    nombre['Precio'] = nuevo_precio
+    nombre['Cantidad'] = nueva_cantidad
+    print("\n ¡Producto actualizado con éxito!")
 
+ 
+    
 def calcular_inventario():
   if len(inventario) == 0:
     print('inventario vacio')
@@ -38,11 +41,6 @@ def calcular_inventario():
     print(f'Total de productos: {stock}')
     print(f'El valor total del inventario: {calcular} $')
       
-    
-
-
-    
-
 def menu():
    
  print("||Menu Inventario|| \n")
@@ -94,10 +92,15 @@ while True:
   registrar_productos(nombre,precio,cantidad)     
   
  elif option == 2:
-   mostrar_inventario()
-   Volver = 0
-   while Volver == 0:
-     try:
+   if len(inventario) == 0:
+    print('El inventario está vacío!\n')
+    time.sleep(0.5)
+    
+   else: 
+    mostrar_inventario()
+    Volver = 0
+    while Volver == 0:
+      try:
        volver = int(input('Escriba un numero del 1-9 para volver al menu \n'))
        if 0 < volver < 10:
          print('Volviendo al menu... \n')
@@ -106,12 +109,12 @@ while True:
        
        elif volver > 9:
          print('Ingrese un numero del rango.. \n')
-         continue
+         
        
        elif volver < 0:
          print('Ingrese un valor positivo \n')
-         continue  
-     except ValueError:
+         
+      except ValueError:
        print('Ingrese un numero valido \n')
 
  elif option == 3:
@@ -120,7 +123,30 @@ while True:
    time.sleep(1)
 
  elif option == 4:
-   print('Aun en proceso \n') 
+   
+   if len(inventario) == 0:
+    print('Inventario vacio \n')
+   else:
+     nombre_buscar = input("Nombre del producto a buscar: ")
+
+     producto_encontrado = None
+     for producto in inventario:
+        if producto['Nombre'].lower() == nombre_buscar.lower():
+            producto_encontrado = producto
+            break
+          
+     if producto_encontrado:
+        print(f"Producto encontrado: {producto_encontrado['Nombre']}")
+        
+       
+        n_nombre = input("Nuevo nombre: ")
+        n_precio = float(input("Nuevo precio: "))
+        n_cantidad = int(input("Nueva cantidad: "))
+
+        
+        actualizar_producto(producto_encontrado, n_nombre, n_precio, n_cantidad)
+     else:
+       print(f" Error: El producto '{nombre_buscar}' no existe. \n")
  
  elif option == 5:
    print('Aun en proceso \n') 
