@@ -113,8 +113,6 @@ while True:
          continue  
      except ValueError:
        print('Ingrese un numero valido \n')
-   else:
-     continue 
 
  elif option == 3:
    calcular_inventario()
