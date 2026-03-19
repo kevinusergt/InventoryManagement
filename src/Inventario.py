@@ -23,6 +23,7 @@ def mostrar_inventario():
     for i in inventario: 
       print(f"Producto: {i['Nombre']} | Precio: {i['Precio']} $ | Cantidad: {i['Cantidad']} unidades \n")
     time.sleep(1)
+    
 
 def calcular_inventario():
   if len(inventario) == 0:
@@ -94,6 +95,26 @@ while True:
   
  elif option == 2:
    mostrar_inventario()
+   Volver = 0
+   while Volver == 0:
+     try:
+       volver = int(input('Escriba un numero del 1-9 para volver al menu \n'))
+       if 0 < volver < 10:
+         print('Volviendo al menu... \n')
+         time.sleep(1)
+         break
+       
+       elif volver > 9:
+         print('Ingrese un numero del rango.. \n')
+         continue
+       
+       elif volver < 0:
+         print('Ingrese un valor positivo \n')
+         continue  
+     except ValueError:
+       print('Ingrese un numero valido \n')
+   else:
+     continue 
 
  elif option == 3:
    calcular_inventario()
