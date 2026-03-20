@@ -35,7 +35,12 @@ while True:
       break  
     except ValueError:
      print('Ingresa un numero entero!')  
-  registrar_productos(nombre,precio,cantidad)     
+  producto = {
+  'Nombre': nombre,
+  'Precio': precio,
+  'Cantidad': cantidad
+ }  
+  registrar_productos(producto)     
   
  elif option == 2:
    if len(inventario) == 0:
@@ -64,9 +69,12 @@ while True:
        print('Ingrese un numero valido \n')
 
  elif option == 3:
-   calcular_inventario()
-   print()
-   time.sleep(1)
+   if len(inventario) == 0:
+    print('inventario vacio')
+   else:  
+    calcular_inventario()
+    print()
+    time.sleep(1)
 
  elif option == 4:
    

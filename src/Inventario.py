@@ -1,15 +1,11 @@
 import time
 
-
+#Crear lista vacia
 inventario = []
 
-def registrar_productos(nombre, precio, cantidad):
-  
-  producto = {
-   'Nombre': nombre,
-   'Precio': precio,
-   'Cantidad': cantidad
-  }
+#Se define una funcion para registrar productos
+def registrar_productos(producto): #Se asigna un parametro
+  #Agrega el producto al inventario
   inventario.append(producto)
   print("Producto Agregado! \n")
   time.sleep(1)
@@ -33,10 +29,7 @@ def eliminar_producto(producto_eliminado):
    
     
 def calcular_inventario():
-  if len(inventario) == 0:
-    print('inventario vacio')
-  else:
-    
+  
     stock = len(inventario)
     
     
