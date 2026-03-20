@@ -127,8 +127,9 @@ while True:
  
  
  elif option == 6:
-   time.sleep(1)
-   break
+    print('Hasta luego, vuelve pronto')
+    time.sleep(1)
+    break
   
  else:
     print('Ingrese una opcion del menú \n')
