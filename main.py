@@ -1,9 +1,10 @@
-from src.Inventario import *
+import time
+import src.Inventario
 
-
+inventario = []
 
 while True:
- menu()
+ src.Inventario.menu()
  while True:
   try:
     option = int(input("Choose an opcion: \n"))
@@ -35,12 +36,8 @@ while True:
       break  
     except ValueError:
      print('Ingresa un numero entero!')  
-  producto = {
-  'Nombre': nombre,
-  'Precio': precio,
-  'Cantidad': cantidad
- }  
-  registrar_productos(producto)     
+  
+  src.Inventario.registrar_productos(inventario, nombre, precio, cantidad)     
   
  elif option == 2:
    if len(inventario) == 0:
@@ -48,7 +45,7 @@ while True:
     time.sleep(0.5)
     
    else: 
-    mostrar_inventario()
+    src.Inventario.mostrar_inventario(inventario)
     Volver = 0
     while Volver == 0:
       try:
@@ -72,7 +69,7 @@ while True:
    if len(inventario) == 0:
     print('inventario vacio')
    else:  
-    calcular_inventario()
+    src.Inventario.calcular_inventario(inventario)
     print()
     time.sleep(1)
 
@@ -109,7 +106,7 @@ while True:
             except ValueError:
               print('Ingrese un numero entero')
           
-          actualizar_producto(producto, n_nombre, n_precio, n_cantidad)
+          src.Inventario.actualizar_producto(producto, n_nombre, n_precio, n_cantidad)
           break
      else:
        print(f" Error: El producto '{nombre_buscar}' no existe. \n")
@@ -123,7 +120,7 @@ while True:
      for producto in inventario:
         if producto['Nombre'].lower() == nombre_eliminar.lower():
           print(f"Producto {producto['Nombre']} encontrado")
-          eliminar_producto(producto)
+          src.Inventario.eliminar_producto(producto)
           print(f"Producto eliminado!")
           break
     
@@ -132,8 +129,6 @@ while True:
           print(f'El producto {nombre_eliminar} no existe!') 
        
         
- 
- 
  elif option == 6:
     print('Hasta luego, vuelve pronto')
     time.sleep(1)
