@@ -1,51 +1,34 @@
-import time
+# Solicitar el nombre del producto al usuario
+Nombre = input("Enter the name: ")
 
+# Inicializar la variable precio
+precio = 0.0
 
-#Se define una funcion para registrar productos
-def registrar_productos(inventario,producto): #Se asigna un parametro
-  #Agrega el producto al inventario
-  inventario.append(producto)
-  print("Producto Agregado! \n")
-  time.sleep(1)
+# Bucle para solicitar el precio hasta que el usuario ingrese un número válido
+while True:
+    try:
+        precio = float(input("Enter the price: "))
+        break
+    except ValueError:
+        print("Enter a correct value: ")
 
-def mostrar_inventario(inventario):
-    for i in inventario: 
-      print(f"Producto: {i['Nombre']} | Precio: {i['Precio']} $ | Cantidad: {i['Cantidad']} unidades \n")
-    time.sleep(1)
- 
-def actualizar_producto(nombre, nuevo_nombre, nuevo_precio, nueva_cantidad):
-    
-    nombre['Nombre'] = nuevo_nombre
-    nombre['Precio'] = nuevo_precio
-    nombre['Cantidad'] = nueva_cantidad
-    print("\n ¡Producto actualizado con éxito!")
+# Inicializar la variable cantidad
+cantidad = 0
 
-def eliminar_producto(inventario, producto_eliminado):
-  inventario.remove(producto_eliminado)
-  
-  
-   
-    
-def calcular_inventario(inventario):
-  
-    stock = len(inventario)
-    
-    
-    calcular = sum(i['Precio'] * i['Cantidad'] for i in inventario)
-    print('---REPORTE DE INVENTARIO---')
-    print(f'Total de productos: {stock}')
-    print(f'El valor total del inventario: {calcular} $')
-      
-def menu():
-   
- print("||Menu Inventario|| \n")
- print("1. Registrar productos")
- print("2. Mostar inventario")
- print('3. Calcular estadisticas')
- print("4. Actualizar inventario")
- print("5. Eliminar producto")
- print("6. salir \n")
+# Bucle para solicitar la cantidad hasta que el usuario ingrese un número entero válido
+while True:
+    try:
+        cantidad = int(input("Enter a quantity: "))
+        break
+    except ValueError:
+        print("Error, Enter a correct value: ")
 
+# Calcular el costo total multiplicando el precio por la cantidad
+costo_total = precio * cantidad
 
+# Mostrar la información del producto y el costo total formateado
+print(f"Producto: {Nombre} | precio: {precio:.3f} $| cantidad: {cantidad} | costo total: {costo_total:.3f} $")
 
-
+# El programa solicita el Nombre, el precio y la cantidad del o los productos
+# Luego multiplica la cantidad de producto(s) por el valor unitario
+# Para finalmente imprimir el nombre, el precio unitario, la cantidad y el costo total del inventario
