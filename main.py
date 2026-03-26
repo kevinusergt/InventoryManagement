@@ -5,7 +5,7 @@ import src.archivos
 
 inventario = []
 
-src.servicios.limpiar_terminal()  
+
 while True:    
  src.servicios.menu()
  while True:
