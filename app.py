@@ -1,6 +1,7 @@
 import time
 import servicios
-import os
+import archivos
+
 
 inventario = []
 
@@ -70,11 +71,9 @@ while True:
 
  elif option == 3:
    if len(inventario) == 0:
-    print('inventario vacio')
+     print('inventario vacio')
    else:  
-    servicios.calcular_inventario(inventario)
-    print()
-    time.sleep(1)
+     print(servicios.calcular_inventario(inventario))
     
     
  elif option == 4:
@@ -137,10 +136,16 @@ while True:
     
        
         else:
-          print(f'El producto {nombre_eliminar} no existe!') 
+          print(f'El producto {nombre_eliminar} no existe!')
+ elif option ==  7:
+   if not inventario:
+        print('Inventario Vacio')
+   else:    
+      Archivo = input('Ingrese el nombre de su archivo. ej (Datos.csv): ')
+      archivos.guardar_CSV(inventario,Archivo)        
        
         
- elif option == 7:
+ elif option == 9:
     print('Hasta luego, vuelve pronto')
     time.sleep(1)
     break

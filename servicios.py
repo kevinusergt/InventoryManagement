@@ -44,12 +44,18 @@ def buscar_producto(inventario,nombre):
 def calcular_inventario(inventario):
   
     stock = len(inventario)
-    
-    
     calcular = sum(i['Precio'] * i['Cantidad'] for i in inventario)
-    print('---REPORTE DE INVENTARIO---')
-    print(f'Total de productos: {stock}')
-    print(f'El valor total del inventario: {calcular} $')
+    producto_mas_caro = max(inventario, key=lambda x: x['Precio'])
+    Producto_de_mayor_stock = max(inventario, key=lambda x: x['Cantidad'])
+    
+    dictionary = {
+      
+        'Stock': stock,
+        'Total inventario': calcular,
+        # 'Producto mas caro': f'Nombre: {producto_mas_caro['Nombre']} || Precio: {producto_mas_caro['Precio']}',
+        # 'Producto mayor stock': f'Nombre: {Producto_de_mayor_stock['Nombre']} || Cantidad: {Producto_de_mayor_stock['Cantidad']}'
+         }
+    return dictionary
       
 def menu():
    
@@ -60,4 +66,6 @@ def menu():
  print('4. Buscar producto')
  print("5. Actualizar inventario")
  print("6. Eliminar producto")
- print("7. salir \n")
+ print("7. Guardar CSV")
+ print("8. Cargar CSV")
+ print("9. salir \n")
