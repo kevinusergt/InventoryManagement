@@ -59,8 +59,8 @@ def calcular_inventario(inventario):
       
         'Stock': stock,
         'Total inventario': calcular,
-        'Producto mas caro': f'Nombre: {producto_mas_caro['Nombre']} || Precio: {producto_mas_caro['Precio']}$',
-        'Producto mayor stock': f'Nombre: {Producto_de_mayor_stock['Nombre']} || Cantidad: {Producto_de_mayor_stock['Cantidad']} unidades'
+        'Producto mas caro': producto_mas_caro['Nombre'],
+        'Producto mayor stock': Producto_de_mayor_stock['Nombre'] 
          }
     return dictionary
       

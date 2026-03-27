@@ -159,7 +159,7 @@ while True:
           
           # Elimina el producto
           src.servicios.eliminar_producto(inventario, producto)
-          print(f"Producto eliminado!")
+          print("Producto eliminado!")
           break
      else:# Mensaje si no existe
           print(f'El producto {nombre_eliminar} no existe!')
