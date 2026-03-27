@@ -1,20 +1,23 @@
 
 
+# Registra un nuevo producto en el inventario
 def registrar_productos(inventario,nombre,precio,cantidad): 
   producto = {
     "Nombre": nombre,
     "Precio": precio,
     "Cantidad": cantidad
   }   
-  inventario.append(producto)
+  inventario.append(producto)  # Agrega el producto a la lista
   print("Producto Agregado! \n")
   
 
+# Muestra todos los productos del inventario
 def mostrar_inventario(inventario):
     for i in inventario: 
       print(f"Producto: {i['Nombre']} | Precio: {i['Precio']} $ | Cantidad: {i['Cantidad']} unidades \n")
     
- 
+
+# Actualiza los datos de un producto existente
 def actualizar_producto(inventario, nuevo_nombre, nuevo_precio=0, nueva_cantidad=0):
     
     inventario['Nombre'] = nuevo_nombre
@@ -22,9 +25,13 @@ def actualizar_producto(inventario, nuevo_nombre, nuevo_precio=0, nueva_cantidad
     inventario['Cantidad'] = nueva_cantidad
     print("\n¡Producto actualizado con éxito!")
 
+
+# Elimina un producto del inventario
 def eliminar_producto(inventario, producto_eliminado):
   inventario.remove(producto_eliminado)
   
+
+# Busca un producto por nombre (sin importar mayúsculas/minúsculas)
 def buscar_producto(inventario,nombre):
   for producto in inventario:
     if producto['Nombre'].lower() == nombre.lower():
@@ -33,13 +40,21 @@ def buscar_producto(inventario,nombre):
   return None  
    
     
+# Calcula estadísticas del inventario
 def calcular_inventario(inventario):
   
-    stock = len(inventario)
+    stock = len(inventario)  # Cantidad de productos distintos
+    
+    # Valor total del inventario (precio * cantidad)
     calcular = sum(i['Precio'] * i['Cantidad'] for i in inventario)
+    
+    # Producto más caro
     producto_mas_caro = max(inventario, key=lambda x: x['Precio'])
+    
+    # Producto con mayor cantidad
     Producto_de_mayor_stock = max(inventario, key=lambda x: x['Cantidad'])
     
+    # Diccionario con resultados
     dictionary = {
       
         'Stock': stock,
@@ -49,6 +64,8 @@ def calcular_inventario(inventario):
          }
     return dictionary
       
+
+# Muestra el menú principal del sistema
 def menu():
    
  print("||Menu Inventario|| \n")
