@@ -13,11 +13,11 @@ while True:
  # Validación de entrada del usuario
  while True:
   try:
-    option = int(input("Choose an opcion: \n"))
+    option = int(input("Elige una opcion: \n"))
     break
 
   except ValueError:
-    print("Enter a valid opcion! \n")
+    print("Ingresa una opcion valida! \n")
     time.sleep(1)
  
 
